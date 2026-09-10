@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXA // Robot rental network</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scanline"></div>
+  <header class="nav">
+    <a class="logo" href="#home"><span class="logo-core">✦</span><span>NEXA<span class="logo-dim">/ROBOT</span></span></a>
+    <nav><a href="#fleet">Đội robot</a><a href="#protocol">Quy trình</a><a href="#orders">Hợp đồng</a><a href="#account">Tài khoản</a><a href="#admin">Quản trị</a></nav>
+    <div class="nav-status"><i></i> NETWORK ONLINE</div>
+    <button class="partner-trigger" id="openPartner">+ Đăng ký đối tác</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <div class="kicker"><span class="pulse"></span> AUTONOMOUS ROBOT RENTAL NETWORK</div>
+        <h1>THUÊ.<br><span>VẬN HÀNH.</span><br>TIẾN HÓA.</h1>
+        <p>Truy cập đội robot toàn cầu theo nhu cầu. Chọn mô hình, đặt lịch vận hành — đối tác giao tận nơi và thu hồi theo mã hợp đồng.</p>
+        <div class="hero-buttons"><a class="neon-button" href="#fleet">KHÁM PHÁ ĐỘI ROBOT <b>↗</b></a><a class="ghost-link" href="#protocol">Xem giao thức <b>↓</b></a></div>
+        <div class="hero-metrics"><div><strong>2,418</strong><span>ROBOT ĐANG KẾT NỐI</span></div><div><strong>34</strong><span>THÀNH PHỐ</span></div><div><strong>99.2%</strong><span>SẴN SÀNG</span></div></div>
+      </div>
+      <div class="hero-visual">
+        <div class="radar"><span class="radar-dot d1"></span><span class="radar-dot d2"></span><span class="radar-dot d3"></span><div class="radar-sweep"></div></div>
+        <div class="bot"><div class="bot-aerial"></div><div class="bot-head"><span></span><span></span><b>◉</b></div><div class="bot-neck"></div><div class="bot-chest"><strong>N</strong><i></i><i></i></div><div class="bot-arm arm-l"></div><div class="bot-arm arm-r"></div><div class="bot-base"><em></em><em></em></div></div>
+        <div class="telemetry top"><span>UNIT / NR-07</span><b>ACTIVE</b><small>LAT 10.8231 · LNG 106.6297</small></div>
+        <div class="telemetry bottom"><small>LIVE TELEMETRY</small><strong>98.7 <i>%</i></strong><span>BATTERY <b></b><b></b><b></b><b></b><b></b></span></div>
+        <div class="visual-label">SCANNING<br><b>AVAILABLE UNITS</b></div>
+      </div>
+    </section>
+
+    <section class="fleet section" id="fleet">
+      <div class="section-top"><div><div class="kicker">01 / GLOBAL FLEET INDEX</div><h2>Chọn đơn vị<br><span>phù hợp.</span></h2></div><div class="section-note">Mỗi robot được xác minh bởi NEXA<br>và sẵn sàng triển khai theo hợp đồng.</div></div>
+      <div class="toolbar"><div class="filter-list"><button class="filter active" data-category="all">TẤT CẢ <small>06</small></button><button class="filter" data-category="warehouse">KHO VẬN</button><button class="filter" data-category="service">DỊCH VỤ</button><button class="filter" data-category="industrial">CÔNG NGHIỆP</button><button class="filter" data-category="event">SỰ KIỆN</button></div><label class="search"><span>⌕</span><input id="searchInput" placeholder="Tìm mã đơn vị hoặc nhiệm vụ"></label></div>
+      <div class="robot-grid" id="robotGrid"></div>
+    </section>
+
+    <section class="protocol section" id="protocol">
+      <div class="section-top"><div><div class="kicker">02 / DEPLOYMENT PROTOCOL</div><h2>Một giao thức.<br><span>Toàn quyền kiểm soát.</span></h2></div><div class="protocol-code">NEXA//OPS<br><b>v2.6.0</b></div></div>
+      <div class="protocol-grid"><article><span>01</span><div class="protocol-icon">⌁</div><h3>CHỌN ĐƠN VỊ</h3><p>Lọc theo nhiệm vụ, vị trí và thời lượng. Mọi thông số vận hành hiển thị trước khi đặt.</p></article><article><span>02</span><div class="protocol-icon">↯</div><h3>GIAO & KÍCH HOẠT</h3><p>Đối tác vận chuyển, lắp đặt và bàn giao robot tận nơi theo lịch trong hợp đồng.</p></article><article><span>03</span><div class="protocol-icon">⌁</div><h3>THU HỒI XÁC THỰC</h3><p>Nhấn chấm dứt. NEXA phát hành phiếu thu hồi, đối chiếu mã hợp đồng khi nhận robot.</p></article></div>
+    </section>
+
+    <section class="contracts section" id="orders"><div class="section-top"><div><div class="kicker">03 / CONTRACT MONITOR</div><h2>Hợp đồng<br><span>đang hoạt động.</span></h2></div><div class="live-pill"><i></i> LIVE MONITORING</div></div><div id="ordersList" class="orders-list"></div></section>
+    <section class="account section" id="account"><div class="section-top"><div><div class="kicker">04 / RENTER IDENTITY</div><h2>Tài khoản<br><span>người thuê.</span></h2></div><div class="account-card"><span class="avatar">NX</span><div><b id="accountName">Khách hàng NEXA</b><small id="accountEmail">Chưa cập nhật hồ sơ</small></div><button class="ghost-action" id="editAccount">CẬP NHẬT ↗</button></div></div><div class="account-grid"><div class="account-stat"><span>HỢP ĐỒNG</span><strong id="accountOrders">0</strong></div><div class="account-stat"><span>ĐANG VẬN HÀNH</span><strong id="accountActive">0</strong></div><div class="account-stat"><span>ĐÃ THU HỒI</span><strong id="accountClosed">0</strong></div></div></section>
+    <section class="account section" id="partnerWallet"><div class="section-top"><div><div class="kicker">05 / PARTNER WALLET</div><h2>Ví đối tác<br><span>rút qua PayPal.</span></h2></div><div class="account-card"><span class="avatar">PP</span><div><b id="partnerName">Chưa kết nối</b><small id="partnerPaypal">Đăng ký để nhận tiền</small></div><button class="ghost-action" id="partnerWithdraw">RÚT TIỀN ↗</button></div></div><div class="account-grid"><div class="account-stat"><span>KHẢ DỤNG (VND)</span><strong id="partnerAvailable">0</strong></div><div class="account-stat"><span>ĐANG GIỮ (VND)</span><strong id="partnerPending">0</strong></div><div class="account-stat"><span>ĐÃ RÚT (VND)</span><strong id="partnerWithdrawn">0</strong></div></div></section>
+    <section class="admin section" id="admin"><div class="section-top"><div><div class="kicker">05 / CONTROL ROOM</div><h2>Quản trị<br><span>vận hành.</span></h2></div><div class="live-pill"><i></i> ADMIN PREVIEW</div></div><div class="admin-grid"><div class="admin-panel"><div class="panel-title">FLEET INVENTORY <b id="adminRobotCount">06 UNITS</b></div><div id="adminRobots"></div></div><div class="admin-panel"><div class="panel-title">ORDER QUEUE <b id="adminOrderCount">00 ORDERS</b></div><div id="adminOrders"></div></div></div></section>
+  </main>
+  <footer><div class="logo"><span class="logo-core">✦</span><span>NEXA<span class="logo-dim">/ROBOT</span></span></div><span>BUILD THE AUTONOMOUS EVERYWHERE.</span><small>© 2026 NEXA NETWORK</small></footer>
+  <button class="ai-fab" id="openAssistant">AI</button><div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div><div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
