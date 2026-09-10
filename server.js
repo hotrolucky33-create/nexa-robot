@@ -111,7 +111,7 @@ if (robotCount === 0) {
 }
 
 const allowedOrigins = new Set(
-  (process.env.FRONTEND_ORIGIN || "http://localhost:8787,https://nexarobot.cloud,https://hotrolucky33-create.github.io")
+  (process.env.FRONTEND_ORIGIN || "http://localhost:8787,http://nexarobot.cloud,https://nexarobot.cloud,https://hotrolucky33-create.github.io")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean)
