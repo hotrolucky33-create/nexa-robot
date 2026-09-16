@@ -1,16 +1,27 @@
 {
-  "name": "nexa-robot",
-  "version": "0.2.0",
+  "name": "verified-engineering-marketplace",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "node apps/api/server.mjs",
+    "dev": "node --watch apps/api/server.mjs",
+    "test": "node --test",
+    "self-test": "node scripts/self-test.mjs",
+    "verify-system": "node scripts/verify-system.mjs",
+    "factory-run": "node scripts/factory-run.mjs",
+    "factory-self-test": "node scripts/factory-self-test.mjs",
+    "environment-report": "node scripts/environment-report.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "dependencies": {
+    "archiver": "^7.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "qrcode": "^1.5.4"
+    "zod": "^3.24.1"
   }
 }

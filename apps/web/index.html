@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verified Engineering Marketplace</title><link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/">VEM</a><nav><a href="#marketplace">Marketplace</a><a href="#pipeline">Pipeline</a><a href="#safety">Safety</a></nav></header>
+<main><section class="hero"><p class="eyebrow">AUDITABLE ENGINEERING RELEASES</p><h1>From specification to evidence.</h1><p>Browse engineering packages with deterministic checks, traceable evidence, immutable revisions, and explicit uncertainty.</p><a class="button" href="#marketplace">Explore verified packages</a></section>
+<section id="marketplace"><p class="eyebrow">MARKETPLACE</p><h2>Verified releases</h2><div id="products" class="grid"><p>Loading products...</p></div></section>
+<section id="pipeline"><p class="eyebrow">PIPELINE</p><h2>AI proposes. Engines verify.</h2><p>CAD, calculations, tolerance, BOM, drawing, manufacturing, adversarial review, and simulation checks remain independent. UNKNOWN is never converted into PASS.</p></section>
+<section id="safety"><p class="eyebrow">SAFETY BOUNDARY</p><h2>Evidence is not certification.</h2><p>This MVP does not release pressure vessels, dangerous machinery, medical devices, weapons, or safety-critical systems without qualified human engineering review.</p></section></main>
+<script>fetch("/api/products").then((response)=>response.json()).then((products)=>{const target=document.querySelector("#products");target.innerHTML=products.length?products.map((product)=>`<article><span class="status">${product.status}</span><h3>${product.name}</h3><p>Revision ${product.version}</p><strong>${(product.price_cents/100).toFixed(2)} ${product.currency}</strong></article>`).join(""):"<p>No verified releases yet.</p>";});</script></body></html>

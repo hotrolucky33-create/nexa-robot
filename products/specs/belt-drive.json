@@ -1,0 +1,1 @@
+{"id":"BELT-DRIVE-001","version":"v1.0.0","shaft":{"loadN":1100,"diameterMm":22,"yieldStrengthMpa":300,"minimumFactorOfSafety":2},"tolerance":{"nominal":22,"tolerance":0.02},"manufacturing":{"wallThicknessMm":4}}

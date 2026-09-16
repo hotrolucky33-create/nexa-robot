@@ -1,0 +1,21 @@
+import assert from "node:assert/strict";
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { runFactory } from "../packages/factory/product-factory.mjs";
+import { AnalyticalCadProvider } from "../packages/cad/engine.mjs";
+
+const root = await fs.mkdtemp(path.join(os.tmpdir(), "vem-factory-"));
+const base = { id: "TEST-PRESS-001", version: "v1.0.0", shaft: { loadN: 1000, diameterMm: 20, yieldStrengthMpa: 300, minimumFactorOfSafety: 2 }, manufacturing: { wallThicknessMm: 3 } };
+const normal = await runFactory(base, { outputRoot: root });
+assert.equal(normal.status, "NOT_VERIFIED");
+assert.equal(normal.checks.find((check) => check.id === "FEA").status, "NOT_AVAILABLE");
+const broken = await runFactory({ ...base, id: "BROKEN-DESIGN", shaft: { ...base.shaft, diameterMm: 0 } }, { outputRoot: root });
+assert.equal(broken.status, "NOT_VERIFIED");
+assert.equal(broken.failureReport.some((failure) => failure.failure === "CALCULATION"), true);
+const collisionModel = new AnalyticalCadProvider().createTestPress();
+collisionModel.parts.push({ id: "BAD-PART", kind: "box", originMm: [150, 110, 20], sizeMm: [20, 20, 20] });
+const collision = await runFactory({ ...base, id: "COLLISION-DESIGN", cadModel: collisionModel }, { outputRoot: root });
+assert.equal(collision.failureReport.some((failure) => failure.failure === "ASSEMBLY"), true);
+await fs.rm(root, { recursive: true, force: true });
+console.log("Factory self-test passed: normal and injected failures remain blocked.");

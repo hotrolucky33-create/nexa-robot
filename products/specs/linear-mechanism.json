@@ -1,0 +1,1 @@
+{"id":"LINEAR-MECHANISM-001","version":"v1.0.0","shaft":{"loadN":900,"diameterMm":20,"yieldStrengthMpa":300,"minimumFactorOfSafety":2},"tolerance":{"nominal":20,"tolerance":0.02},"manufacturing":{"wallThicknessMm":4}}

@@ -1,5 +1,6 @@
 node_modules/
 .env
-nexa.sqlite
-nexa.sqlite-shm
-nexa.sqlite-wal
+data/*.sqlite
+data/*.sqlite-*
+dist/
+reports/generated/

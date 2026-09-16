@@ -1,0 +1,1 @@
+{"name":"axial shaft stress reference","input":{"loadN":1000,"diameterMm":20,"yieldStrengthMpa":300},"expected":{"stressMpa":3.1830988618,"factorOfSafety":94.2477796077},"relativeTolerance":1e-9}

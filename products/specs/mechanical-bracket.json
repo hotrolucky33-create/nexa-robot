@@ -1,0 +1,1 @@
+{"id":"MECHANICAL-BRACKET-001","version":"v1.0.0","shaft":{"loadN":500,"diameterMm":18,"yieldStrengthMpa":250,"minimumFactorOfSafety":2},"tolerance":{"nominal":18,"tolerance":0.02},"manufacturing":{"wallThicknessMm":4}}
